@@ -20,7 +20,7 @@ echo @="Nettoyer le projet"
 echo "Icon"="\"%programPath%\""
 echo.
 echo [HKEY_CLASSES_ROOT\Directory\shell\NettoyerProjet\command]
-REM echo @="cmd.exe /c start /min \"%programPath%\" \"%%1\""
+:: echo @="cmd.exe /c start /min \"%programPath%\" \"%%1\""
 echo @="\"%programPath%\" \"%%1\""
 ) > add_to_context_menu_utf8.reg
 
