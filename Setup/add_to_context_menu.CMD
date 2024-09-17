@@ -15,7 +15,7 @@ chcp 65001 >nul
 (
 echo Windows Registry Editor Version 5.00
 echo.
-echo [HKEY_CLASSES_ROOT\Directory\shell\NettoyerProjet]
+echo [HKEY_CLASSES_ROOT\Directory\shell\CleanProjet]
 echo @="Clean the project"
 echo "Icon"="\"%programPath%\""
 echo.
