@@ -31,6 +31,5 @@ echo The .reg file was created successfully.
 echo Execute the .reg file to use GitCleanProject from File Explorer.
 
 pause
-
 :: Restore default encoding (ANSI - 850 or another depending of your system)
 chcp 850 >nul
