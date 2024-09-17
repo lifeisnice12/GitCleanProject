@@ -1,9 +1,10 @@
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
+#* text=auto
 *.cmd text eol=crlf
 *.bat text eol=crlf
-* text=auto
+
 
 ###############################################################################
 # Set default behavior for command prompt diff.
