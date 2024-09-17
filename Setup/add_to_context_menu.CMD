@@ -1,25 +1,25 @@
 @echo off
 setlocal
 
-:: Récupérer le chemin courant du répertoire où se trouve le batch
+:: Get current path, where this file and .exe file are located
 set "currentDir=%~dp0"
 set "programPath=%currentDir%GitCleanProject.exe"
 
-:: Remplacer les simples antislashs par des doubles antislashs
+:: Remplace backslashes by double backlashes
 set "programPath=%programPath:\=\\%"
 
-:: Utilisation de l'encodeur CHCP pour UTF-8
+:: Use CHCP encoding for UTF-8
 chcp 65001 >nul
 
-:: Créer le fichier .reg avec le chemin dynamique
+:: Create .reg file including current path
 (
 echo Windows Registry Editor Version 5.00
 echo.
 echo [HKEY_CLASSES_ROOT\Directory\shell\NettoyerProjet]
-echo @="Nettoyer le projet"
+echo @="Clean the project"
 echo "Icon"="\"%programPath%\""
 echo.
-echo [HKEY_CLASSES_ROOT\Directory\shell\NettoyerProjet\command]
+echo [HKEY_CLASSES_ROOT\Directory\shell\CleanProjet\command]
 :: echo @="cmd.exe /c start /min \"%programPath%\" \"%%1\""
 echo @="\"%programPath%\" \"%%1\""
 ) > add_to_context_menu_utf8.reg
@@ -27,10 +27,10 @@ echo @="\"%programPath%\" \"%%1\""
 iconv -f UTF-8 -t CP1252 add_to_context_menu_utf8.reg > add_to_context_menu.reg
 del add_to_context_menu_utf8.reg
 
-echo Le fichier .reg a été crée avec succès.
-echo Exécutez le fichier .reg pour pouvoir exécuter GitCleanProject depuis l'Explorateur de fichier.
+echo The .reg file was created successfully.
+echo Execute the .reg file to use GitCleanProject from File Explorer.
 
 pause
 
-:: Restaurer l'encodage par défaut (ANSI - 850 ou autre selon votre système)
+:: Restore default encoding (ANSI - 850 or another depending of your system)
 chcp 850 >nul
